@@ -1,26 +1,63 @@
 package com.example.game.biginsight.tribe;
 
 import com.example.game.biginsight.attribute.ElfAttribute;
-import com.example.game.biginsight.tribe.common.Character;
+import com.example.game.biginsight.parent.PlayerUnit;
+import com.example.game.biginsight.weapon.ElfWeaponTypes;
 import lombok.Getter;
+import lombok.Setter;
 
 
 @Getter
-public class Elf extends Character implements ElfAttribute {
-
+@Setter
+public class Elf extends PlayerUnit implements ElfAttribute{
+    ElfWeaponTypes elfWeaponTypes;
 
     public Elf() {
-        super(ElfAttribute.LEVEL, ElfAttribute.MAX_HP, ElfAttribute.MAX_MP, ElfAttribute.POWER
-                , ElfAttribute.ATTACK_SPEED, ElfAttribute.DEFENSE, ElfAttribute.EVASION);
+        setLevel(LEVEL);
+        setMax_hp(MAX_HP);
+        setHp(MAX_HP);
+        setMax_mp(MAX_MP);
+        setMp(MAX_MP);
+        setPower(POWER);
+        setAttackSpeed(ATTACK_SPEED);
+        setDefense(DEFENSE);
+        setEvasion(EVASION);
+        setElfWeaponTypes(ElfWeaponTypes.NONE);
     }
 
+    @Override
     public void levelUp() {
-        super.levelUp(ElfAttribute.UP_MAX_MP, ElfAttribute.UP_EVASION, ElfAttribute.UP_MAX_HP
-                , ElfAttribute.UP_POWER, ElfAttribute.UP_ATTACK_SPEED, ElfAttribute.UP_DEFENSE);
+        setLevel(getLevel()+1);
+        setMax_hp(getMax_hp()+UP_MAX_HP);
+        setHp(getMax_hp());
+        setMax_mp(getMax_mp()+UP_MAX_MP);
+        setMp(getMax_mp());
+        setPower(getPower()+UP_POWER);
+        setAttackSpeed(getAttackSpeed()+UP_ATTACK_SPEED);
+        setAttackSpeedByWeapon(getAttackSpeed()*getElfWeaponTypes().getAttackSpeed());
+        setDefense(getDefense()+UP_DEFENSE);
+        setEvasion(getEvasion()+UP_EVASION);
+    }
+
+    @Override
+    public void putOnWeapon(String weapon) {
+        try {
+            setAttackSpeedByWeapon(getAttackSpeed() * ElfWeaponTypes.valueOf(weapon).getAttackSpeed());
+            setElfWeaponTypes(ElfWeaponTypes.valueOf(weapon));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage()+" 무기 착용 실패 [전용 무기가 아닙니다.]");
+        }
+    }
+
+    @Override
+    public void takeOffWeapon() {
+        setAttackSpeedByWeapon(0);
+        setElfWeaponTypes(ElfWeaponTypes.NONE);
     }
 
     @Override
     public String toString() {
-        return "종족(엘프) - " + super.toString();
+        return "종족(엘프) - " + super.toString() + ", 무기 " + getElfWeaponTypes();
     }
+
 }
