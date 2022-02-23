@@ -18,7 +18,7 @@
 <br><br><br><br>
 
 ## 프로젝트 구조
- ├─attribute        -- 각 유닛의 속성 관련 클래스  
+├─attribute        -- 각 유닛의 속성 관련 클래스  
  ├                 
  ├─monster  		  -- 몬스터 관련 클래스  
  ├  
@@ -27,16 +27,10 @@
  ├─skill                  -- 스킬 관련 클래스     
  ├  
  ├─thread              -- 스킬 쓰레드 관련 클래스 
- 
- ├ ├
- ├ ├─commonskill       --  공통 스킬
- 
- ├ ├─elfskill                 --  엘프 스킬
- 
- ├ ├─humanskill       	--  휴먼 스킬
- 
+ ├ └─commonskill       --  공통 스킬 
+ ├ └─elfskill                 --  엘프 스킬
+ ├ └─humanskill       	--  휴먼 스킬 
  ├ └─orkskill      	        --  오크 스킬
- 
  ├
  ├─tribe            	      -- 종족 관련 클래스            
  ├  
