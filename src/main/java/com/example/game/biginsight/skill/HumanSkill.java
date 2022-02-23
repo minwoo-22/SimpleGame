@@ -23,8 +23,7 @@ public class HumanSkill extends Skill implements HumanAttribute {
         int consumeMp = 250;
         if (checkMp(human, consumeMp)) {
             human.setMp(human.getMp()-consumeMp);
-            human.setMax_hp(Integer.MAX_VALUE-1000);
-            human.setHp(Integer.MAX_VALUE-1000);
+            human.invincibleOn();
             System.out.println("궁극스킬 Invincible 시전");
         }
     }
