@@ -9,7 +9,8 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Human extends PlayerUnit implements HumanAttribute {
-    HumanWeaponTypes humanWeaponTypes;
+    private HumanWeaponTypes humanWeaponTypes;
+    private boolean invincibleCheck = false;
 
     public Human() {
         setLevel(LEVEL);
@@ -52,6 +53,34 @@ public class Human extends PlayerUnit implements HumanAttribute {
     public void takeOffWeapon() {
         setAttackSpeedByWeapon(0);
         setHumanWeaponTypes(HumanWeaponTypes.NONE);
+    }
+
+    @Override
+    public boolean takeDamage(int damage) {
+        if (!invincibleCheck) {
+            int realDamage = damage - getDefense();
+            if (realDamage < 0) realDamage = 0;
+
+            int percentage = (int) Math.round(getTotalEvasion());    // 회피 확률
+            int ranNum = (int) ((Math.random()*99)+1);
+            if (ranNum >= 1 && ranNum <= percentage) {
+                System.out.println(percentage+"% 확률로 [회피]");
+                return false;
+            }
+
+            setHp(getHp() - realDamage);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void invincibleOn() {
+        this.invincibleCheck = true;
+    }
+
+    public void invincibleOff() {
+        this.invincibleCheck = false;
     }
 
     @Override
