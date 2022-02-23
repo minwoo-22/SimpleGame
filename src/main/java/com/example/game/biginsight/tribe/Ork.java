@@ -10,6 +10,14 @@ import lombok.Setter;
 @Setter
 public class Ork extends PlayerUnit implements OrkAttribute {
     OrkWeaponTypes orkWeaponTypes;
+    private int powerByAnger;
+    private int powerByFrenzy;
+
+    @Override
+    public int getTotalPower() {
+        return getPower()+getPowerByAnger()+getPowerByFrenzy()
+                +getPowerByWeapon()+getPowerBySkill();
+    }
 
     public Ork() {
         setLevel(LEVEL);
@@ -59,6 +67,9 @@ public class Ork extends PlayerUnit implements OrkAttribute {
 
     @Override
     public String toString() {
-        return "종족(오크) - " + super.toString() + ", 무기 " + getOrkWeaponTypes();
+        return "종족(오크) - 캐릭터 정보 : 레벨 "+getLevel()+", 체력 "+getHp()+"/"+getMax_hp()+", 마나 "+getMp()+"/"+getMax_mp()+
+                ", 공격력 "+getTotalPower()+", 공격속도 "+(Math.round(getTotalAttackSpeed()*100)/100.0)
+                +", 방어력 "+getTotalDefense()+", 회피율(%) "+(Math.round(getTotalEvasion()))+", 무기 " + getOrkWeaponTypes();
     }
+
 }
