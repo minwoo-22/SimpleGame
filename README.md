@@ -18,23 +18,17 @@
 <br><br><br><br>
 
 ## 프로젝트 구조
-├─attribute        -- 각 유닛의 속성 관련 클래스  
- ├                 
- ├─monster  		  -- 몬스터 관련 클래스  
- ├  
- ├─parent         	  -- 각 클래스의 가장 상위에 있는 부모 클래스(추상)
- ├ 
- ├─skill                  -- 스킬 관련 클래스     
- ├  
- ├─thread              -- 스킬 쓰레드 관련 클래스 
- ├ └─commonskill       --  공통 스킬 
- ├ └─elfskill                 --  엘프 스킬
- ├ └─humanskill       	--  휴먼 스킬 
- ├ └─orkskill      	        --  오크 스킬
- ├
- ├─tribe            	      -- 종족 관련 클래스            
- ├  
- └─weapon          -- 무기 관련 클래스(enum)
+* attribute  --각 유닛의 속성 관련 클래스
+* monster   --몬스터 관련 클래스
+* parent      --각 클래스의 가장 상위에 있는 클래스(추상)
+* skill           --스킬 관련 클래스
+* thread      --스킬 스레드 관련 클래스
+	* commonskill  --공통 스킬
+	* elfskill  --엘프 스킬
+	* humanskill  --휴먼 스킬
+	* orkskill  --오크 스킬
+* tribe  --종족 관련 클래스
+* weapon  --무기 관련 클래스
 <br><br><br>
 
 ## 구현한 기능과 주요 포인트
