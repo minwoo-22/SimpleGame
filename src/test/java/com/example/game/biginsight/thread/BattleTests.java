@@ -82,7 +82,7 @@ public class BattleTests {
             elf.attack(monster);
             System.out.println("몬스터 현재 체력 : " + monster.getHp());
             try {
-                Thread.sleep((long) ((1/elf.getAttackSpeed())*1000));
+                Thread.sleep((long) ((1/elf.getTotalAttackSpeed())*1000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -128,7 +128,7 @@ public class BattleTests {
             ork.attack(monster);
             System.out.println("몬스터 현재 체력 : " + monster.getHp());
             try {
-                Thread.sleep((long) ((1/ork.getAttackSpeed())*1000));
+                Thread.sleep((long) ((1/ork.getTotalAttackSpeed())*1000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -176,7 +176,7 @@ public class BattleTests {
             ork.attack(monster);
             System.out.println("몬스터 현재 체력 : " + monster.getHp());
             try {
-                Thread.sleep((long) ((1/ork.getAttackSpeed())*1000));
+                Thread.sleep((long) ((1/ork.getTotalAttackSpeed())*1000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -225,7 +225,7 @@ public class BattleTests {
             human.attack(monster);
             System.out.println("몬스터 현재 체력 : " + monster.getHp());
             try {
-                Thread.sleep((long) ((1/human.getAttackSpeed())*1000));
+                Thread.sleep((long) ((1/human.getTotalAttackSpeed())*1000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -272,7 +272,7 @@ public class BattleTests {
             human.attack(monster);
             System.out.println("몬스터 현재 체력 : " + monster.getHp());
             try {
-                Thread.sleep((long) ((1/human.getAttackSpeed())*1000));
+                Thread.sleep((long) ((1/human.getTotalAttackSpeed())*1000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -457,10 +457,8 @@ public class BattleTests {
         while (t1.isAlive()) {
             human.attack(monster);
             System.out.println("몬스터 현재 체력 : " + monster.getHp());
-            double totalAttackSpeed = human.getAttackSpeed()+human.getAttackSpeedByWeapon()
-                    +human.getAttackSpeedBySkill();
             try {
-                Thread.sleep((long) ((1/totalAttackSpeed)*1000));
+                Thread.sleep((long) ((1/ human.getTotalAttackSpeed())*1000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

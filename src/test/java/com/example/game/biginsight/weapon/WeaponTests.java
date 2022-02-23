@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class WeaponTests {
     @Test
-    @DisplayName("무기 착용 후 스탯 비교_성공")
+    @DisplayName("종족_무기 착용 후 스탯 비교_성공")
     void putOnWeapon() {
         Elf elf = new Elf();
         System.out.println("엘프 무기 착용 전 : " + elf);
@@ -31,14 +31,14 @@ public class WeaponTests {
     }
 
     @Test
-    @DisplayName("휴먼이 오크 무기 착용_실패")
+    @DisplayName("휴먼_오크 무기 착용_실패")
     void putOnWeaponFailure() {
         Human human = new Human();
         human.putOnWeapon(OrkWeaponTypes.SHORT_AXE.name());
     }
 
     @Test
-    @DisplayName("무기 바꿔 착용하기_성공")
+    @DisplayName("엘프_무기 바꿔 착용하기_성공")
     void changeWeapon() {
         Elf elf = new Elf();
         elf.putOnWeapon(ElfWeaponTypes.SHORT_BOW.name());
@@ -60,7 +60,7 @@ public class WeaponTests {
     }
 
     @Test
-    @DisplayName("무기 착용 후 레벨업 스탯 비교_성공")
+    @DisplayName("엘프_무기 착용 후 레벨업 스탯 비교_성공")
     void putOnWeaponAndLevelUp() {
         Elf elf = new Elf();
         System.out.println("무기 착용 전 : " + elf);
@@ -72,11 +72,6 @@ public class WeaponTests {
         System.out.println("레벨업 후 : " + elf);
     }
 
-    @Test
-    void numTest() {
-        Elf elf = new Elf();
-        int num = (int) Math.round(elf.getEvasion());
-        System.out.println(num);
-    }
+
 
 }

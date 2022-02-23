@@ -43,31 +43,6 @@ public class SkillTests {
     }
 
     @Test
-    @DisplayName("엘프_스킬 지속시간 확인_성공")
-    void elfSkillDuraion() {
-        Elf elf = new Elf();
-        Elf elf2 = new Elf();
-        ElfSkill.steam(elf);
-        ElfSkill.elusion(elf);
-        System.out.println("스킬 사용 후 : " + elf);
-//        long before = System.currentTimeMillis();
-//        try {
-//            Thread.sleep(8000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        long after = System.currentTimeMillis();
-//
-//        if (after - before >= ElfSkill.STEAM_DURATION) {
-//            elf.setPowerBySkill(0);
-//        }
-//        if (after - before >= ElfSkill.ELUSION_DURATION) {
-//            elf.setEvasionBySkill(0);
-//        }
-        System.out.println("스킬 지속 시간 끝난 후 : " + elf);
-    }
-
-    @Test
     @DisplayName("엘프_궁극 스킬 사용_성공")
     void elfUltiSkill() {
         Elf elf = new Elf();
@@ -90,5 +65,20 @@ public class SkillTests {
         OrkSkill.frenzy(ork);
         System.out.println("스킬 사용 후 : " + ork);
     }
+
+    @Test
+    @DisplayName("휴먼_마나 없을 때 스킬 시전 불가_성공")
+    void mpTest() {
+        Human human = new Human();
+        int i = 0;
+        while (i < 10) {
+            HumanSkill.guard(human);
+            int MP = human.getMp();
+            System.out.println("MP : " + human.getMp());
+            i++;
+        }
+        System.out.println(human);
+    }
+
 
 }

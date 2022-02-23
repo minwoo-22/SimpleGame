@@ -9,28 +9,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class TribeTests {
     @Test
-    @DisplayName("엘프 생성_성공")
+    @DisplayName("엘프_생성_성공")
     void createElf() {
         Elf elf = new Elf();
         System.out.println(elf);
     }
 
     @Test
-    @DisplayName("휴먼 생성_성공")
+    @DisplayName("휴먼_생성_성공")
     void createHuman() {
         Human human = new Human();
         System.out.println(human);
     }
 
     @Test
-    @DisplayName("오크 생성_성공")
+    @DisplayName("오크_생성_성공")
     void createOrk() {
         Ork ork = new Ork();
         System.out.println(ork);
     }
 
     @Test
-    @DisplayName("캐릭터 레벨업_성공")
+    @DisplayName("엘프_레벨업_성공")
     void levelUpSuccess() {
         Elf elf = new Elf();
         elf.levelUp();
