@@ -52,6 +52,22 @@ public abstract class PlayerUnit extends GameUnit{
         this.attackSpeedByWeapon = attackSpeedByWeapon;
     }
 
+    public int getTotalPower() {
+        return getPower()+getPowerBySkill()+getPowerByWeapon();
+    }
+
+    public double getTotalAttackSpeed() {
+        return getAttackSpeed()+getAttackSpeedBySkill()+getAttackSpeedByWeapon();
+    }
+
+    public int getTotalDefense() {
+        return getDefense()+getDefenseBySkill();
+    }
+
+    public double getTotalEvasion() {
+        return getEvasion()+getEvasionBySkill();
+    }
+
     public abstract void levelUp();
 
     public abstract void putOnWeapon(String weapon);
@@ -60,8 +76,8 @@ public abstract class PlayerUnit extends GameUnit{
 
 
     public boolean attack(Monster monster) {
-        System.out.println("[캐릭터] 공격");
-        boolean check = monster.takeDamage(getPower()+getPowerByWeapon());
+        System.out.println("[캐릭터] 공격 : "+getTotalPower());
+        boolean check = monster.takeDamage(getTotalPower());
         if(!check) {
             takeDamage(MonsterSkill.skill(monster));
         }
@@ -73,7 +89,7 @@ public abstract class PlayerUnit extends GameUnit{
         int realDamage = damage - getDefense();
         if (realDamage < 0) realDamage = 0;
 
-        int percentage = (int) Math.round(getEvasion());    // 회피 확률
+        int percentage = (int) Math.round(getTotalEvasion());    // 회피 확률
         int ranNum = (int) ((Math.random()*99)+1);
         if (ranNum >= 1 && ranNum <= percentage) {
             System.out.println(percentage+"% 확률로 [회피]");
@@ -87,9 +103,9 @@ public abstract class PlayerUnit extends GameUnit{
 
     @Override
     public String toString() {
-        return "캐릭터 정보 : 레벨 "+getLevel()+", 체력 "+getHp()+"/"+getMax_hp()+", 마나 "+getMp()+"/"+getMax_mp()+", 공격력 "+(getPower()
-                +getPowerByWeapon()+getPowerBySkill())+", 공격속도 "+(Math.round((getAttackSpeed()+getAttackSpeedByWeapon()+getAttackSpeedBySkill())*100)/100.0)
-                +", 방어력 "+(getDefense()+getDefenseBySkill())+", 회피율(%) "+(Math.round(getEvasion()+getEvasionBySkill()));
+        return "캐릭터 정보 : 레벨 "+getLevel()+", 체력 "+getHp()+"/"+getMax_hp()+", 마나 "+getMp()+"/"+getMax_mp()+
+                ", 공격력 "+getTotalPower()+", 공격속도 "+(Math.round(getTotalAttackSpeed()*100)/100.0)
+                +", 방어력 "+getTotalDefense()+", 회피율(%) "+(Math.round(getTotalEvasion()));
     }
 
 }
