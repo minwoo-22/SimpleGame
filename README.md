@@ -27,8 +27,8 @@
  ├─skill                  -- 스킬 관련 클래스     
  ├  
  ├─thread              -- 스킬 쓰레드 관련 클래스 
- 
- ├  └─commonskill       --  공통 스킬
+ ├  
+ └─commonskill       --  공통 스킬
  
  ├  └─elfskill                 --  엘프 스킬
  
