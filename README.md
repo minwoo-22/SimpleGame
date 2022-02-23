@@ -28,12 +28,9 @@
  ├  
  ├─thread              -- 스킬 쓰레드 관련 클래스 
  ├ ├
- ├ └─commonskill       --  공통 스킬
- ├ ├
- ├ └─elfskill                 --  엘프 스킬
- ├ ├
- ├ └─humanskill       	--  휴먼 스킬
- ├ ├
+ ├ ├─commonskill       --  공통 스킬
+ ├ ├─elfskill                 --  엘프 스킬
+ ├ ├─humanskill       	--  휴먼 스킬
  ├ └─orkskill      	        --  오크 스킬
  ├
  ├─tribe            	      -- 종족 관련 클래스            
