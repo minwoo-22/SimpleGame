@@ -3,43 +3,44 @@ package com.example.game.biginsight.skill;
 import com.example.game.biginsight.tribe.Elf;
 import com.example.game.biginsight.tribe.Human;
 import com.example.game.biginsight.tribe.Ork;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@Slf4j
 public class SkillTests {
     @Test
     @DisplayName("엘프_스킬 사용 후 변화값 확인_성공")
     void elfSkill() {
         Elf elf = new Elf();
-        System.out.println("스킬 사용 전 : " + elf);
+        log.info("스킬 사용 전 : " + elf);
         ElfSkill.elusion(elf);
         ElfSkill.heal(elf);
         ElfSkill.steam(elf);
-        System.out.println("스킬 사용 후 : " + elf);
+        log.info("스킬 사용 후 : " + elf);
     }
 
     @Test
     @DisplayName("휴먼_스킬 사용 후 변화값 확인_성공")
     void humanSkill() {
         Human human = new Human();
-        System.out.println("스킬 사용 전 : " + human);
+        log.info("스킬 사용 전 : " + human);
         HumanSkill.guard(human);
         HumanSkill.heal(human);
         HumanSkill.steam(human);
-        System.out.println("스킬 사용 후 : " + human);
+        log.info("스킬 사용 후 : " + human);
     }
 
     @Test
     @DisplayName("오크_스킬 사용 후 변화값 확인_성공")
     void orkSkill() {
         Ork ork = new Ork();
-        System.out.println("스킬 사용 전 : " + ork);
+        log.info("스킬 사용 전 : " + ork);
         OrkSkill.frenzy(ork);
         OrkSkill.heal(ork);
         OrkSkill.steam(ork);
-        System.out.println("스킬 사용 후 : " + ork);
+        log.info("스킬 사용 후 : " + ork);
     }
 
     @Test
@@ -49,9 +50,9 @@ public class SkillTests {
         for (int i = 0; i < 98; i++) {
             elf.levelUp();
         }
-        System.out.println("스킬 사용 전 : " + elf);
+        log.info("스킬 사용 전 : " + elf);
         ElfSkill.rapid(elf);
-        System.out.println("스킬 사용 후 : " + elf);
+        log.info("스킬 사용 후 : " + elf);
     }
 
     @Test
@@ -61,9 +62,9 @@ public class SkillTests {
         for (int i = 0; i < 98; i++) {
             ork.levelUp();
         }
-        System.out.println("스킬 사용 전 : " + ork);
+        log.info("스킬 사용 전 : " + ork);
         OrkSkill.frenzy(ork);
-        System.out.println("스킬 사용 후 : " + ork);
+        log.info("스킬 사용 후 : " + ork);
     }
 
     @Test
@@ -74,10 +75,10 @@ public class SkillTests {
         while (i < 10) {
             HumanSkill.guard(human);
             int MP = human.getMp();
-            System.out.println("MP : " + human.getMp());
+            log.info("MP : " + human.getMp());
             i++;
         }
-        System.out.println(human);
+        log.info(human.toString());
     }
 
 

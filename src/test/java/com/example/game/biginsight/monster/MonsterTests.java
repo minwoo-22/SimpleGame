@@ -1,11 +1,13 @@
 package com.example.game.biginsight.monster;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
+
+@Slf4j
 public class MonsterTests {
     @Test
     @DisplayName("몬스터 생성")
@@ -18,7 +20,7 @@ public class MonsterTests {
                 .build();
 
         Monster monster1 = new Monster();
-        System.out.println(monster.toString());
-        assertThat(monster.toString()).isEqualTo(monster1.toString());
+        log.info(monster.toString());
+        log.info(monster.toString());
     }
 }

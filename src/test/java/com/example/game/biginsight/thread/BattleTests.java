@@ -19,7 +19,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+
 public class BattleTests {
     @Test
     @DisplayName("엘프,몬스터_공격 테스트_성공")
