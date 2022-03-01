@@ -5,9 +5,11 @@ import com.example.game.biginsight.parent.PlayerUnit;
 import com.example.game.biginsight.weapon.OrkWeaponTypes;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 @Getter
 @Setter
+@Slf4j
 public class Ork extends PlayerUnit implements OrkAttribute {
     OrkWeaponTypes orkWeaponTypes;
     private int powerByAnger;
@@ -54,7 +56,7 @@ public class Ork extends PlayerUnit implements OrkAttribute {
             setAttackSpeedByWeapon(getAttackSpeed() * OrkWeaponTypes.valueOf(weapon).getAttackSpeed());
             setOrkWeaponTypes(OrkWeaponTypes.valueOf(weapon));
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage()+" 무기 착용 실패 [전용 무기가 아닙니다.]");
+            log.info(e.getMessage()+" 무기 착용 실패 [전용 무기가 아닙니다.]");
         }
     }
 

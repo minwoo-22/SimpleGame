@@ -5,9 +5,11 @@ import com.example.game.biginsight.parent.PlayerUnit;
 import com.example.game.biginsight.weapon.HumanWeaponTypes;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 @Setter
 @Getter
+@Slf4j
 public class Human extends PlayerUnit implements HumanAttribute {
     private HumanWeaponTypes humanWeaponTypes;
     private boolean invincibleCheck = false;
@@ -45,7 +47,7 @@ public class Human extends PlayerUnit implements HumanAttribute {
             setPowerByWeapon((int) (getPower() * HumanWeaponTypes.valueOf(weapon).getPower()));
             setHumanWeaponTypes(HumanWeaponTypes.valueOf(weapon));
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage()+" 무기 착용 실패 [전용 무기가 아닙니다.]");
+            log.info(e.getMessage()+" 무기 착용 실패 [전용 무기가 아닙니다.]");
         }
     }
 
@@ -64,7 +66,7 @@ public class Human extends PlayerUnit implements HumanAttribute {
             int percentage = (int) Math.round(getTotalEvasion());    // 회피 확률
             int ranNum = (int) ((Math.random()*99)+1);
             if (ranNum >= 1 && ranNum <= percentage) {
-                System.out.println(percentage+"% 확률로 [회피]");
+                log.info(percentage+"% 확률로 [회피]");
                 return false;
             }
 

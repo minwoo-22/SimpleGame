@@ -5,10 +5,12 @@ import com.example.game.biginsight.parent.PlayerUnit;
 import com.example.game.biginsight.weapon.ElfWeaponTypes;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Getter
 @Setter
+@Slf4j
 public class Elf extends PlayerUnit implements ElfAttribute{
     ElfWeaponTypes elfWeaponTypes;
 
@@ -45,7 +47,7 @@ public class Elf extends PlayerUnit implements ElfAttribute{
             setAttackSpeedByWeapon(getAttackSpeed() * ElfWeaponTypes.valueOf(weapon).getAttackSpeed());
             setElfWeaponTypes(ElfWeaponTypes.valueOf(weapon));
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage()+" 무기 착용 실패 [전용 무기가 아닙니다.]");
+            log.info(e.getMessage()+" 무기 착용 실패 [전용 무기가 아닙니다.]");
         }
     }
 

@@ -4,9 +4,11 @@ import com.example.game.biginsight.monster.Monster;
 import com.example.game.biginsight.skill.MonsterSkill;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 @Getter
 @Setter
+@Slf4j
 public abstract class PlayerUnit extends GameUnit{
     private int max_mp;
     private int level;              //Character의 레벨
@@ -76,7 +78,7 @@ public abstract class PlayerUnit extends GameUnit{
 
 
     public boolean attack(Monster monster) {
-        System.out.println("[캐릭터] 공격 : "+getTotalPower());
+        log.info("[캐릭터] 공격 : "+getTotalPower());
         boolean check = monster.takeDamage(getTotalPower());
         if(!check) {
             takeDamage(MonsterSkill.skill(monster));
@@ -92,7 +94,7 @@ public abstract class PlayerUnit extends GameUnit{
         int percentage = (int) Math.round(getTotalEvasion());    // 회피 확률
         int ranNum = (int) ((Math.random()*99)+1);
         if (ranNum >= 1 && ranNum <= percentage) {
-            System.out.println(percentage+"% 확률로 [회피]");
+            log.info(percentage+"% 확률로 [회피]");
             return false;
         }
 
