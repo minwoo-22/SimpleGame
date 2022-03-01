@@ -5,6 +5,13 @@ import com.example.game.biginsight.parent.Skill;
 import com.example.game.biginsight.tribe.Ork;
 
 public class OrkSkill extends Skill implements OrkAttribute {
+    // 스킬 쿨타임
+    public static final int ANGER_COOL_TIME = 15000;
+    public static final int FRENZY_COOL_TIME = 300000;
+
+    // 스킬 지속시간
+    public static final int ANGER_DURATION = 5000;
+    public static final int FRENZY_DURAION = 60000;
 
     public static void anger(Ork ork) {
         int comsumeMp = 20+5*ork.getLevel();

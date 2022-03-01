@@ -5,6 +5,13 @@ import com.example.game.biginsight.parent.Skill;
 import com.example.game.biginsight.tribe.Human;
 
 public class HumanSkill extends Skill implements HumanAttribute {
+    // 스킬 쿨타임
+    public static final int GUARD_COOL_TIME = 15000;
+    public static final int INVINCIBLE_COOL_TIME = 300000;
+
+    // 스킬 지속시간
+    public static final int GUARD_DURATION = 5000;
+    public static final int INVINCIBLE_DURAION = 60000;
 
     public static void guard(Human human) {
         int consumeMp = 20+5* human.getLevel();
