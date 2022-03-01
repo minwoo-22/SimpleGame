@@ -22,11 +22,4 @@ public interface HumanAttribute {
     int UP_DEFENSE = 3;
     double UP_EVASION = 0.2;
 
-    // 스킬 쿨타임
-    int GUARD_COOL_TIME = 15000;
-    int INVINCIBLE_COOL_TIME = 300000;
-
-    // 스킬 지속시간
-    int GUARD_DURATION = 5000;
-    int INVINCIBLE_DURAION = 60000;
 }

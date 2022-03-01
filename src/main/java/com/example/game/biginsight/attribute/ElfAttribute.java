@@ -21,11 +21,4 @@ public interface ElfAttribute {
     int UP_DEFENSE = 2;
     double UP_EVASION = 0.5;
 
-    // 스킬 쿨타임
-    int ELUSION_COOL_TIME = 15000;
-    int RAPID_COOL_TIME = 300000;
-
-    // 스킬 지속시간
-    int ELUSION_DURATION = 5000;
-    int RAPID_DURAION = 60000;
 }

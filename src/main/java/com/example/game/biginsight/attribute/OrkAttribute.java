@@ -21,11 +21,4 @@ public interface OrkAttribute {
     int UP_DEFENSE = 2;
     double UP_EVASION = 0.1;
 
-    // 스킬 쿨타임
-    int ANGER_COOL_TIME = 15000;
-    int FRENZY_COOL_TIME = 300000;
-
-    // 스킬 지속시간
-    int ANGER_DURATION = 5000;
-    int FRENZY_DURAION = 60000;
 }
