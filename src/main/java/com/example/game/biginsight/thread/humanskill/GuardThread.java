@@ -5,7 +5,7 @@ import com.example.game.biginsight.skill.HumanSkill;
 import com.example.game.biginsight.thread.commonskill.HealThread;
 import com.example.game.biginsight.tribe.Human;
 
-public class GuardThread extends Thread implements HumanAttribute {
+public class GuardThread extends Thread {
     private Human human;
 
     public GuardThread(Human human) {
@@ -16,14 +16,14 @@ public class GuardThread extends Thread implements HumanAttribute {
     public void run() {
         HumanSkill.guard(human);
         try {
-            Thread.sleep(GUARD_DURATION);
+            Thread.sleep(HumanSkill.GUARD_DURATION);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         human.setDefenseBySkill(0);
 
         try {
-            Thread.sleep(GUARD_COOL_TIME - GUARD_DURATION);
+            Thread.sleep(HumanSkill.GUARD_COOL_TIME - HumanSkill.GUARD_DURATION);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

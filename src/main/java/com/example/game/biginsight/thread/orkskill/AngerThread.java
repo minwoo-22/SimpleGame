@@ -4,7 +4,7 @@ import com.example.game.biginsight.attribute.OrkAttribute;
 import com.example.game.biginsight.skill.OrkSkill;
 import com.example.game.biginsight.tribe.Ork;
 
-public class AngerThread extends Thread implements OrkAttribute {
+public class AngerThread extends Thread {
     private Ork ork;
 
     public AngerThread(Ork ork) {
@@ -15,7 +15,7 @@ public class AngerThread extends Thread implements OrkAttribute {
     public void run() {
         OrkSkill.anger(ork);
         try {
-            Thread.sleep(ANGER_DURATION);
+            Thread.sleep(OrkSkill.ANGER_DURATION);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -23,7 +23,7 @@ public class AngerThread extends Thread implements OrkAttribute {
         ork.setDefenseBySkill(0);
 
         try {
-            Thread.sleep(ANGER_COOL_TIME - ANGER_DURATION);
+            Thread.sleep(OrkSkill.ANGER_COOL_TIME - OrkSkill.ANGER_DURATION);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

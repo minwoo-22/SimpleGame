@@ -4,7 +4,7 @@ import com.example.game.biginsight.attribute.ElfAttribute;
 import com.example.game.biginsight.skill.ElfSkill;
 import com.example.game.biginsight.tribe.Elf;
 
-public class ElusionThread extends Thread implements ElfAttribute{
+public class ElusionThread extends Thread {
     private Elf elf;
 
     public ElusionThread(Elf elf) {
@@ -15,13 +15,13 @@ public class ElusionThread extends Thread implements ElfAttribute{
     public void run() {
         ElfSkill.elusion(elf);
         try {
-            Thread.sleep(ELUSION_DURATION);
+            Thread.sleep(ElfSkill.ELUSION_DURATION);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         elf.setEvasionBySkill(0);
         try {
-            Thread.sleep(ELUSION_COOL_TIME-ELUSION_DURATION);
+            Thread.sleep(ElfSkill.ELUSION_COOL_TIME-ElfSkill.ELUSION_DURATION);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

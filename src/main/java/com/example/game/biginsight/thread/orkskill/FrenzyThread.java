@@ -4,7 +4,7 @@ import com.example.game.biginsight.attribute.OrkAttribute;
 import com.example.game.biginsight.skill.OrkSkill;
 import com.example.game.biginsight.tribe.Ork;
 
-public class FrenzyThread extends Thread implements OrkAttribute {
+public class FrenzyThread extends Thread {
     private Ork ork;
 
     public FrenzyThread(Ork ork) {
@@ -15,14 +15,14 @@ public class FrenzyThread extends Thread implements OrkAttribute {
     public void run() {
         OrkSkill.frenzy(ork);
         try {
-            Thread.sleep(FRENZY_DURAION);
+            Thread.sleep(OrkSkill.FRENZY_DURAION);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         ork.setPowerByFrenzy(0);
 
         try {
-            Thread.sleep(FRENZY_COOL_TIME - FRENZY_DURAION);
+            Thread.sleep(OrkSkill.FRENZY_COOL_TIME - OrkSkill.FRENZY_DURAION);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

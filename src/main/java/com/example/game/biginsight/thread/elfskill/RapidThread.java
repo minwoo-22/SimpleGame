@@ -4,7 +4,7 @@ import com.example.game.biginsight.attribute.ElfAttribute;
 import com.example.game.biginsight.skill.ElfSkill;
 import com.example.game.biginsight.tribe.Elf;
 
-public class RapidThread extends Thread implements ElfAttribute {
+public class RapidThread extends Thread {
     private Elf elf;
 
     public RapidThread(Elf elf) {
@@ -15,13 +15,13 @@ public class RapidThread extends Thread implements ElfAttribute {
     public void run() {
         ElfSkill.rapid(elf);
         try {
-            Thread.sleep(RAPID_DURAION);
+            Thread.sleep(ElfSkill.RAPID_DURAION);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         elf.setAttackSpeedBySkill(0);
         try {
-            Thread.sleep(RAPID_COOL_TIME-RAPID_DURAION);
+            Thread.sleep(ElfSkill.RAPID_COOL_TIME-ElfSkill.RAPID_DURAION);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
